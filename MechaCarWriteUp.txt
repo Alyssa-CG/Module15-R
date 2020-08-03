@@ -1,0 +1,123 @@
+MPG Regression
+
+    The MPG Multiple Linear Regression Model is as follows:
+
+    mpg = 6.267'vehicle length' + 0.001'vehicle weight' + 0.069'spoiler angle' 
+            + 3.546'ground clearance' - 3.411AWD - 103.964
+
+
+        Summary statistics from RStudio:
+
+        Call:
+        lm(formula = mpg ~ `vehicle length` + `vehicle weight` + `spoiler angle` + 
+            `ground clearance` + AWD, data = MechaCar)
+
+        Residuals:
+            Min       1Q   Median       3Q      Max 
+        -19.4701  -4.4994  -0.0692   5.4433  18.5849 
+
+        Coefficients:
+                            Estimate  Std. Error t value        Pr(>|t|)    
+        (Intercept)        -103.963979   15.850376  -6.559 0.0000000507794 ***
+        `vehicle length`      6.267128    0.655348   9.563 0.0000000000026 ***
+        `vehicle weight`      0.001245    0.000689   1.807          0.0776 .  
+        `spoiler angle`       0.068766    0.066526   1.034          0.3069    
+        `ground clearance`    3.545534    0.541191   6.551 0.0000000521269 ***
+        AWD                  -3.411499    2.534697  -1.346          0.1852    
+        ---
+        Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+        Residual standard error: 8.774 on 44 degrees of freedom
+        Multiple R-squared:  0.7149,	Adjusted R-squared:  0.6825 
+        F-statistic: 22.07 on 5 and 44 DF,  p-value: 0.0000000000535
+
+    From the data we can see that: 
+
+        * The probability of the vehicle length, ground clearance and the intercept contributing 
+            a random amount of variance is extremely low. That is, vehicle length, ground clearance
+            and other variables not included (as seen from the intercept) provide a non-random
+            amount of variance to the mpg values in the dataset.
+
+        * The slope of the linear model is not considered to be zero. The p-value is 0.0000000000535,
+            far smaller than an assumed 0.05, which means there would be sufficient evidence to reject
+            the null hypothesis.
+
+        * The linear model does predict the mpg fairly effectively, with a multiple r-squared value 
+            of 0.715 and an adjusted r-squared value of 0.683. Either value shows the majority of mpg
+            prototype predictions will be correct when using this model.
+
+
+Suspension Coil Summary
+
+    Summary Statistics Table for the suspenstion coil's pounds-per-inch continuous variable:
+            Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+            1463    1497    1500    1500    1501    1536 
+
+            Variance = 76.235
+            Standard Deviation = 8.731
+    
+    The variance of the coils must not and does not exceed 100 pounds per inch. 
+    This is clear from the data wherein:
+        * Mean and Median are the same indicated normal distribution (no skew).
+        * The variance is only 76.235 with a standard deviation of 8.731, which combined are still within 
+            the design specifications.
+
+
+Suspension Coil T-Test
+
+    One-sample t-Test
+        data:  SuspensionCoil$PSI
+        t = -0.65784, df = 149, p-value = 0.5117
+        alternative hypothesis: true mean is not equal to 1500
+        95 percent confidence interval:
+        1498.122 1500.940
+        sample estimates:
+        mean of x 
+        1499.531 
+    
+    Our p-value is well over the assumed 0.05 threshold so we do not have sufficient evidence to reject 
+    our null hypothesis, that is, the data shows the sample mean and the population mean are statistically
+    similar.
+
+
+Design Own Study
+
+    Metrics:
+
+        There are many factors consumers must consider when buying a car. I would narrow down to three and
+        choose to consider any connections between:
+            1) Price
+            2) Drive Type
+            3) Shape 
+        for my study. I believe these are important variables, easily affected by each consusers income (price),
+        family size (a larger family may prefer a vehicle shape with more seating), road conditons 
+        (extremely snowy may affect interest in four wheel/all wheel Drive Types), lifestyle and preferences. 
+
+    Hypotheses:
+
+        1)  H0 = Mean price of the MechaCar is similar to the mean price of other vehicles in its class.
+            Ha = Mean price of the MechaCar is not similar to the mean price of other vehicles in its class.
+
+        2)  H0 = Vehicle choice is not affected by Drive Type
+            Ha = Vehicle choice is affected by Drive Type
+
+        3)  H0 = Vehicle shape does not affect sales
+            Ha = Vehicle shape does affect sales
+
+    Statistical tests
+
+        Different tests may be used at times but for my study I would opt to use the following:
+
+            1) One sample t-test to determine if mean price is statistically different or not from the population.
+            2) Chi-square to determine if there is a difference in categorical frequencies.
+            3) Chi-square to determine if there is a difference in categorical frequencies.
+
+    Data:
+        1) We would need data on car prices across the industry, especially for cars in the MechaCar's class 
+            to determine a population mean.
+        2) We would need categorical data across the industry on sales of cars by Drive Type to get frequencies.
+        3) We would need categorical data across the industry on sales of cars by Shape to get frequencies.
+
+    When designing a study there are numerous factors that could be looked at besides these three here.
+
+
